@@ -144,79 +144,128 @@
 
  
 
-
-    <!-- Quote Start -->
-    <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
-        <div class="container quote px-lg-0">
-            <div class="row g-0 mx-lg-0">
-                <!-- <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="img/quote.jpg" style="object-fit: cover;" alt="">
-                    </div>
-                </div> -->
-                <div class="col-lg-12 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="p-lg-5 pe-lg-0">
-                       
-                            <h1 class="display-5 mb-4"> Career at Hawking Virtual World</h1>
-                      
-                        <p class="mb-4 pb-2">Driver
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Collect form data
+        $firstName = $_POST['firstName'];
+        $lastName = $_POST['lastName'];
+        $fatherName = $_POST['fatherName'];
+        $qualification = $_POST['qualification'];
+        $experience = $_POST['experience'];
+        $mobileNumber = $_POST['mobileNumber'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
+        $state = $_POST['state'];
+        $city = $_POST['city'];
+        $licenseNumber = $_POST['licenseNumber'];
+        $licenseType = $_POST['licenseType'];
+        $description = $_POST['description'];
+    
+        // Compose email message
+        $to = 'info@mysuruhawking.com';
+        $subject = 'New Job Application Form Submission';
+        $message = "
+        First Name: $firstName\n
+        Last Name: $lastName\n
+        Father's Name: $fatherName\n
+        Qualification: $qualification\n
+        Total Experience: $experience\n
+        Mobile Number: $mobileNumber\n
+        Email: $email\n
+        Address: $address\n
+        State: $state\n
+        City: $city\n
+        Driving Licence Number: $licenseNumber\n
+        License Type: $licenseType\n
+        Description: $description\n
+        ";
+    
+        // Send email
+        $headers = 'From: webmaster@example.com' . "\r\n" .
+            'Reply-To: ' . $email . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+    
+        if (mail($to, $subject, $message, $headers)) {
+            echo '<div class="alert alert-success" role="alert">Form submitted successfully. We will contact you shortly.</div>';
+        } else {
+            echo '<div class="alert alert-danger" role="alert">Failed to submit the form. Please try again later.</div>';
+        }
+    }
+    ?>
+    
+    
+        <!-- Quote Start -->
+        <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+            <div class="container quote px-lg-0">
+                <div class="row g-0 mx-lg-0">
+                    <!-- <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute img-fluid w-100 h-100" src="img/quote.jpg" style="object-fit: cover;" alt="">
+                        </div>
+                    </div> -->
+                    <div class="col-lg-12 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="p-lg-5 pe-lg-0">
+                           
+                                <h1 class="display-5 mb-4"> Career at Hawking Virtual World</h1>
                           
-                        </p>
-                       <form action="send_email.php" method="post">
-                            <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="First Name" style="height: 55px;">
+                            <p class="mb-4 pb-2">Driver
+                              
+                            </p>
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control border-0" placeholder="First Name" style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control border-0" placeholder="Lasts Name" style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control border-0" placeholder="Father Name" style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control border-0" placeholder="Qualification " style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control border-0" placeholder="Total no of experience " style="height: 55px;">
+                                    </div>
+                                   
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control border-0" placeholder="Mobile number" style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="email" class="form-control border-0" placeholder="Email Id" style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control border-0" placeholder=" Address" style="height: 55px;">
+                                    </div>
+                  
+                                   
+                                     <div class="col-12 col-sm-6">
+                                        <textarea class="form-control border-0" placeholder=" State"></textarea>
+                                    </div>
+                                     <div class="col-12 col-sm-6">
+                                        <textarea class="form-control border-0" placeholder=" City"></textarea>
+                                    </div>
+                                     <div class="col-12 col-sm-6">
+                                        <textarea class="form-control border-0" placeholder=" Driving licence number"></textarea>
+                                    </div>
+                                     <div class="col-12 col-sm-6">
+                                        <textarea class="form-control border-0" placeholder=" License type "></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="form-control border-0" placeholder=" Description"></textarea>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Lasts Name" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Father Name" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Qualification " style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Total no of experience " style="height: 55px;">
-                                </div>
-                               
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Mobile number" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control border-0" placeholder="Email Id" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder=" Address" style="height: 55px;">
-                                </div>
-              
-                               
-                                 <div class="col-12 col-sm-6">
-                                    <textarea class="form-control border-0" placeholder=" State"></textarea>
-                                </div>
-                                 <div class="col-12 col-sm-6">
-                                    <textarea class="form-control border-0" placeholder=" City"></textarea>
-                                </div>
-                                 <div class="col-12 col-sm-6">
-                                    <textarea class="form-control border-0" placeholder=" Driving licence number"></textarea>
-                                </div>
-                                 <div class="col-12 col-sm-6">
-                                    <textarea class="form-control border-0" placeholder=" License type "></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control border-0" placeholder=" Description"></textarea>
-                                </div>
-                                <div class="col-12 col-sm-4">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div> 
-    <!-- Quote End -->
+        </div> 
+        <!-- Quote End -->
 
 
  
