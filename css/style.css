@@ -636,5 +636,18 @@
  #vis{
      height: 325px;
  }
+ #pri{
+    margin-left: -225px !important;
+}
+}
+@media (max-width: 700px) {
+    #pri{
+        margin-left: -189px !important;
+    }
+}
+#pri{
+    margin-top: 64px;
+    margin-left: -239px;
+    text-align: left;
 }
  
