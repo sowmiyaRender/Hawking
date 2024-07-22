@@ -650,4 +650,8 @@
     margin-left: -239px;
     text-align: left;
 }
- 
+@media (min-width: 992px) {
+    #contact{
+        display: none;
+    }
+}
