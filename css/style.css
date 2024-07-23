@@ -644,6 +644,9 @@
  #pri{
     margin-left: -225px !important;
 }
+#caro{
+    font-size: 30px;
+}
 }
 @media (max-width: 700px) {
     #pri{
