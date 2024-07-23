@@ -171,6 +171,11 @@
     .header-carousel .owl-carousel-item h1 {
         font-size: 30px;
         font-weight: 600;
+        margin-top:56px;
+    }
+    #my{
+        height: 57px;
+        width: 100%;
     }
 }
 
@@ -654,4 +659,12 @@
     #contact{
         display: none;
     }
+}
+@media screen and (max-width: 991px) {
+    #mysuru{
+    width:219px !important;
+}
+}
+#mysuru{
+    width:70%;
 }
